@@ -43,7 +43,7 @@ def load_labels(filename):
 #将0-9的标签规整为1-0
 def encode_fives(Y):
     # Convert all 5s to 1, and everything else to 0
-    return (Y == 5).astype(int)
+    return (Y == 2).astype(int)
 
 
 # 60K labels, each with value 1 if the digit is a five, and 0 otherwise
