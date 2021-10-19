@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def predict(X, w):
@@ -21,16 +23,15 @@ def train(X, Y, iterations, lr):
     return w
 
 
-x1, x2, x3, y = np.loadtxt("pizza_3_vars.txt",skiprows=1,unpack=True)
+x1, x2, x3, y = np.loadtxt("life_expectancy.txt",skiprows=1,unpack=True)
 
 X = np.column_stack((np.ones(x1.size), x1, x2, x3))
 
 Y = y.reshape(-1, 1)
 #步长过大会导致损失无法收敛
-w = train(X, Y, iterations=100000, lr=0.0001)
+w = train(X, Y, iterations=1000000, lr=0.00001)
 
 print("\n Weights: %s" % w.T)
 print("\n A few predictions:")
-for i in range(5):
+for i in range(X.shape[0]):
     print("X[%d] -> %.4f (label: %d)" % (i, predict(X[i], w), Y[i]))
-
