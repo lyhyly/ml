@@ -1,6 +1,8 @@
 import numpy as np
 
-timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect = np.loadtxt("C3.csv",dtype=str,delimiter=",",skiprows=1,unpack=True)
+fileName = "tj.csv"
+
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect = np.loadtxt(fileName,dtype=str,delimiter=",",skiprows=1,unpack=True)
 X = np.column_stack((np.float64(timeStamp),np.float64(elapsed),label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect))
 
 # np.float64(X[:,1])
